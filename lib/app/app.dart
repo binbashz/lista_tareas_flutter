@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lista_tareas_flutter/app/view/splash.dart';
+import 'package:lista_tareas_flutter/app/view/task_list.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -11,14 +12,19 @@ class MyApp extends StatelessWidget {
     const backgroundColor = Color(0xFFF5F5F5);
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: primary),
-          scaffoldBackgroundColor: backgroundColor,
-          textTheme: Theme.of(context).textTheme.apply(
-                fontFamily: 'Roboto',
-                bodyColor: textColor,
-                displayColor: textColor,
-              )),
+        colorScheme: ColorScheme.fromSeed(seedColor: primary),
+        scaffoldBackgroundColor: backgroundColor,
+        textTheme: Theme.of(context).textTheme.apply(
+              fontFamily: 'Roboto',
+              bodyColor: textColor,
+              displayColor: textColor,
+            ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: primary,
+        ),
+      ),
       home: SplashPage(),
     );
   }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lista_tareas_flutter/app/view/task_list.dart';
 
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView( 
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Row(
@@ -31,11 +32,19 @@ class SplashPage extends StatelessWidget {
                   ),
             ),
             const SizedBox(height: 21),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text(
-                'La mejor forma para que no se te olvide nada es anotarlo. Guarda tus tareas y ve completándolas poco a poco para aumentar tu productividad.',
-                textAlign: TextAlign.center,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return TaskListPage();
+                }));
+              },
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: Text(
+                  'La mejor forma para que no se te olvide nada es anotarlo. Guarda tus tareas y ve completándolas poco a poco para aumentar tu productividad.',
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ],
